@@ -1,3 +1,8 @@
+<!--
+Single-file index.html (inline CSS). Mobile-first.
+Edit the text right in the HTML (Name / message) and you’re done.
+-->
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -6,8 +11,132 @@
     <title>Merry Christmas</title>
     <meta name="description" content="A little Christmas gift." />
 
-    <link rel="stylesheet" href="./styles.css" />
-    <script src="./script.js" defer></script>
+    <style>
+      :root {
+        --bg: #f7f7fb;
+        --bg-1: rgba(0, 0, 0, 0.06);
+        --bg-2: rgba(0, 0, 0, 0.035);
+
+        --text: #0b0c10;
+        --muted: #4c5160;
+        --border: rgba(11, 12, 16, 0.14);
+        --shadow: 0 14px 34px rgba(0, 0, 0, 0.10);
+
+        --card: rgba(255, 255, 255, 0.86);
+        --radius: 18px;
+
+        --accent-1: rgba(57, 194, 127, 0.70);
+        --accent-2: rgba(255, 93, 93, 0.60);
+      }
+
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+          "Apple Color Emoji", "Segoe UI Emoji";
+        background:
+          radial-gradient(1200px 600px at 20% 0%, var(--bg-1), transparent),
+          radial-gradient(900px 500px at 80% 20%, var(--bg-2), transparent),
+          var(--bg);
+        color: var(--text);
+      }
+
+      /* subtle snow */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: -60px 0 0 0;
+        pointer-events: none;
+        opacity: 0.18;
+        background-image:
+          radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 2px),
+          radial-gradient(circle, rgba(0,0,0,0.10) 1px, transparent 2px);
+        background-size: 160px 160px, 240px 240px;
+        background-position: 0 0, 80px 110px;
+        animation: snow 18s linear infinite;
+        mix-blend-mode: overlay;
+      }
+
+      @keyframes snow {
+        from { transform: translateY(-60px); }
+        to { transform: translateY(60px); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        body::before { animation: none; }
+      }
+
+      .wrap {
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding:
+          max(18px, env(safe-area-inset-top))
+          max(18px, env(safe-area-inset-right))
+          max(22px, env(safe-area-inset-bottom))
+          max(18px, env(safe-area-inset-left));
+      }
+
+      .card {
+        width: min(820px, 100%);
+        text-align: center;
+        padding: 26px 22px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+
+        border: 1px solid transparent;
+        background:
+          linear-gradient(var(--card), var(--card)) padding-box,
+          linear-gradient(135deg, var(--accent-1), var(--accent-2)) border-box;
+        backdrop-filter: blur(10px);
+      }
+
+      .icons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        font-size: 22px;
+        margin-bottom: 10px;
+        opacity: 0.95;
+      }
+
+      .title {
+        margin: 0;
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -0.6px;
+        font-size: clamp(32px, 7vw, 46px);
+      }
+
+      .sub {
+        margin: 14px auto 0;
+        max-width: 60ch;
+        font-size: 16px;
+        line-height: 1.65;
+        color: rgba(11, 12, 16, 0.86);
+      }
+
+      .divider {
+        height: 1px;
+        width: 180px;
+        margin: 18px auto 0;
+        background: linear-gradient(90deg, transparent, var(--border), transparent);
+      }
+
+      .hint {
+        margin: 10px auto 0;
+        max-width: 62ch;
+        font-size: 13px;
+        line-height: 1.5;
+        color: var(--muted);
+      }
+
+      @media (max-width: 860px) {
+        .card { padding: 24px 18px; }
+      }
+    </style>
   </head>
 
   <body>
@@ -15,23 +144,18 @@
       <section class="card">
         <div class="icons" aria-hidden="true">🎄 🎁 ✨</div>
 
-        <div class="topline">
-          <span class="name" id="name">Name</span>
-          <span class="dot" aria-hidden="true">•</span>
-          <span class="tagline" id="tagline">a tiny corner of the internet</span>
-        </div>
+        <!-- EDIT THIS LINE -->
+        <h1 class="title">Merry Christmas, NAME</h1>
 
-        <h1 class="title" id="headline">Merry Christmas</h1>
-
-        <p class="message" id="bio">
+        <!-- EDIT THIS PARAGRAPH -->
+        <p class="sub">
           I bought you this domain so you’ve got a spot online. Keep it simple for now — you can make it whatever later.
         </p>
 
         <div class="divider" aria-hidden="true"></div>
 
-        <p class="helper" id="helper">
-          If you want to actually build it out, Kristof will help you set it up.
-        </p>
+        <!-- EDIT THIS LINE (OR DELETE IT) -->
+        <p class="hint">If you want to actually build it out, Kristof will help you set it up.</p>
       </section>
     </main>
   </body>
