@@ -2,41 +2,37 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title id="page-title">Merry Christmas</title>
-    <meta id="page-desc" name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Merry Christmas</title>
+    <meta name="description" content="A little Christmas gift." />
+
     <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
   </head>
 
   <body>
-    <header class="container header">
-      <div class="brand">
-        <span class="site-mark" id="name">Name</span>
-        <span class="muted small" id="tagline"></span>
-      </div>
+    <main class="wrap">
+      <section class="card">
+        <div class="icons" aria-hidden="true">🎄 🎁 ✨</div>
 
-      <nav class="nav">
-        <button id="theme-toggle" class="chip chip-btn" type="button">Theme</button>
-      </nav>
-    </header>
-
-    <main class="container">
-      <section class="gift-center">
-        <div class="card gift-card">
-          <div class="gift-icons" aria-hidden="true">🎄 🎁 ✨</div>
-          <h1 class="gift-title" id="headline">Merry Christmas</h1>
-          <p class="gift-sub" id="bio">
-            I bought you this domain so you’ve got a spot online. Keep it simple for now — you can make it whatever later.
-          </p>
-          <div class="divider" aria-hidden="true"></div>
-          <p class="hint" id="helper">
-            If you want to actually build it out, Kristof will help you set it up.
-          </p>
+        <div class="topline">
+          <span class="name" id="name">Name</span>
+          <span class="dot" aria-hidden="true">•</span>
+          <span class="tagline" id="tagline">a tiny corner of the internet</span>
         </div>
+
+        <h1 class="title" id="headline">Merry Christmas</h1>
+
+        <p class="message" id="bio">
+          I bought you this domain so you’ve got a spot online. Keep it simple for now — you can make it whatever later.
+        </p>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <p class="helper" id="helper">
+          If you want to actually build it out, Kristof will help you set it up.
+        </p>
       </section>
     </main>
-
-    <!-- IMPORTANT: script at the end so the button exists -->
-    <script src="./script.js"></script>
   </body>
 </html>
